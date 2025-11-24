@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea y Ejecución</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Elementos de animación inicial -->
+    <div class="animation-container">
+        <div id="idea-text" class="centered-text hidden">
+            Primero la idea
+            <div id="idea-subtext" class="subtext hidden">
+                Empezando con un boceto
+            </div>
+        </div>
+        
+        <div id="unstyled-portfolio" class="portfolio-content hidden">
+            <!-- Contenido sin estilos -->
+            <div class="portfolio-box">
+                <header>
+                    <h1>Sir. Million</h1>
+                    <p>Desarrollador Web novato</p>
+                </header>
+                <section class="about">
+                    <h2>Sobre mí</h2>
+                    <p>Desarrollador apasionado por crear experiencias web únicas y funcionales.</p>
+                </section>
+                <section class="projects">
+                    <h2>Proyectos</h2>
+                    <div class="project-item">
+                        <h3>Proyecto 1</h3>
+                        <p>Descripción del proyecto destacado</p>
+                    </div>
+                </section>
+                <section class="contact">
+                    <h2>Contacto</h2>
+                    <p>Email: obearellanoclark@gmail.com</p>
+                </section>
+            </div>
+        </div>
+
+        <div id="execution-text" class="centered-text hidden">
+            Luego la ejecución
+            <div id="execution-subtext" class="subtext hidden">
+                Y convierte en realidad tu proyecto
+            </div>
+        </div>
+    </div>
+
+    <!-- Portafolio con estilos -->
+    <nav class="main-nav">
+        <div class="logo">SM</div>
+        <ul>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+    <div id="styled-portfolio" class="styled-portfolio hidden">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1>Sir. Million</h1>
+                <p>Soy un desarrollador web</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Aquí irá el contenido scrolleable -->
+            <section id="about" class="section">
+                <h2>Sobre mí</h2>
+                <p>
+                    Soy un desarrollador web con pasión por transformar ideas en experiencias digitales claras, atractivas y funcionales. <br>
+                    Me gusta combinar el diseño con la lógica, buscando siempre que cada línea de código tenga un propósito y que cada interacción cuente una historia. 
+                    <br><br>
+                    Me interesa crear sitios que no solo se vean bien, sino que realmente se sientan bien al usarlos. <br>
+                    Disfruto aprender nuevas tecnologías, experimentar con herramientas modernas y mejorar constantemente mi forma de trabajar para ofrecer soluciones únicas, eficientes y adaptadas a cada proyecto.
+                </p>
+            </section>
+
+            <section id="projects" class="section">
+                <h2>Proyectos</h2>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://placehold.co/600x600" alt="Proyecto 1">
+                            <div class="project-overlay">
+                                <a href="#" class="project-link">Ver proyecto</a>
+                                <a href="#" class="github-link">Ver código</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Portfolio Dinámico</h3>
+                            <p class="project-description">Un portfolio interactivo con animaciones suaves y diseño responsivo.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://placehold.co/600x600" alt="Proyecto 2">
+                            <div class="project-overlay">
+                                <a href="#" class="project-link">Ver proyecto</a>
+                                <a href="#" class="github-link">Ver código</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>E-commerce Dashboard</h3>
+                            <p class="project-description">Panel de control para gestión de ventas y productos en tiempo real.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://placehold.co/600x600" alt="Proyecto 3">
+                            <div class="project-overlay">
+                                <a href="#" class="project-link">Ver proyecto</a>
+                                <a href="#" class="github-link">Ver código</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>App de Clima</h3>
+                            <p class="project-description">Aplicación del clima con geolocalización y pronósticos detallados.</p>
+                            <div class="project-tags">
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">API REST</span>
+                                <span class="tag">Sass</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://placehold.co/600x400" alt="Proyecto 4">
+                            <div class="project-overlay">
+                                <a href="#" class="project-link">Ver proyecto</a>
+                                <a href="#" class="github-link">Ver código</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Blog Personal</h3>
+                            <p class="project-description">Blog con sistema de gestión de contenidos y comentarios.</p>
+                            <div class="project-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">GraphQL</span>
+                                <span class="tag">Tailwind</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contacto</h2>
+                <div class="contact-container">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <div class="copy-email" data-email="obearellanoclark@gmail.com">
+                            <span class="email-text">obearellanoclark@gmail.com</span>
+                            <span class="copy-tooltip">Click para copiar</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/ob%C3%A9-arellano-clark-98672a389//" target="_blank" class="social-link">
+                            <span>Conecta conmigo</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/tu-usuario" target="_blank" class="social-link">
+                            <span>Ver repositorios</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+:root {
+    /* Colores primarios */
+    --color-primary: #6366f1;
+    --color-primary-dark: #2563eb;
+    --color-primary-light: rgba(99, 102, 241, 0.4);
+
+    /* Colores secundarios */
+    --color-accent: #ff66c4;
+    --color-accent-light: #fda7dc;
+
+    /* Colores de texto */
+    --color-text-main: #1a1a1a;
+    --color-text-secondary: #4a4a4a;
+    --color-text-invert: #ffffff;
+
+    /* Colores de fondo */
+    --color-bg-main: #fff;
+    --color-bg-dark: #1f2937;
+    --color-bg-blur: rgba(99, 101, 241, 0.336);
+
+    /* Bordes y sombras */
+    --color-border: #ccc;
+    --shadow-light: #4a4a4a;
+    --shadow-medium: #252525;
+    --shadow-dark: #1a1a1a;
+
+    /* Scrollbar */
+    --scrollbar-color: rgba(99, 102, 241, 0.3);
+    --scrollbar-hover: rgba(99, 102, 241, 0.4);
+
+    /* Degradados */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    --gradient-accent: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos minimalistas para la barra de scroll */
+::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-hover) transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--color-bg-main);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-y: overlay;
+    overflow-x: hidden;
+}
+
+/* Scrollbar styles with overlay */
+body::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track-piece,
+body::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    border-radius: 4px;
+}
+
+/* Firefox - establecer ancho delgado y colores */
+body {
+    scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.animating {
+    overflow: hidden;
+}
+
+/* Contenedor de animación */
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: var(--color-bg-main);
+}
+
+/* Estilos para textos centrados */
+.centered-text {
+    position: absolute;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.5px;
+}
+
+.subtext {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-top: 1rem;
+    color: #4a4a4a;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Clases de utilidad para animaciones */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+.fade-in {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    transition: 
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-out {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-20px) !important;
+    transition: 
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estilos para el portafolio sin estilizar */
+.portfolio-content {
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(20px);
+}
+
+/* Estilos para el portafolio estilizado */
+.styled-portfolio {
+    width: 100vw;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+
+.hero-section {
+    height: 100vh;
+    background: var(--gradient-primary);
+    color: var(--color-text-invert);
+    position: relative;
+    animation: gradientShift 15s ease-in-out infinite alternate;
+    background-size: 200% 200%;
+    padding-top: 80px; /* Espacio para compensar el nav fixed */
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background-color: var(--color-bg-blur);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    color: var(--color-text-invert);
+    text-shadow: #1a1a1a 2px 2px 2px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.main-nav a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    color: var(--color-accent);
+}
+
+.main-nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-nav a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding-top: 2rem; /* Compensar el espacio del nav fixed */
+    color: var(--color-text-invert);
+    text-shadow: var(--shadow-medium) 2px 2px 2px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: var(--shadow-medium) 4px 4px 8px;
+}
+
+.main-content {
+    padding: 2rem 5%;
+    margin-top: 0;
+}
+
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-main);
+}
+
+/* Estilos de la sección de contacto */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.contact-card {
+    background: var(--color-bg-main);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: var(--color-text-invert);
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+}
+
+.copy-email {
+    position: relative;
+    cursor: pointer;
+    padding: 0.8rem;
+    background: var(--color-primary-light);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.copy-email:hover {
+    background: var(--color-primary);
+}
+
+.copy-email:hover .email-text {
+    color: var(--color-text-invert);
+}
+
+.email-text {
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.copy-tooltip {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-text-main);
+    color: var(--color-text-invert);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.copy-email:hover .copy-tooltip {
+    opacity: 1;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-text-invert);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+    background: var(--color-primary-dark);
+    transform: scale(1.05);
+}
+
+.social-link i {
+    font-size: 0.9rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.project-card {
+    background: var(--color-bg-main);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-link,
+.github-link {
+    padding: 0.8rem 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-text-invert);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.github-link {
+    background: var(--color-accent);
+}
+
+.project-link:hover,
+.github-link:hover {
+    transform: scale(1.05);
+}
+
+.project-link:hover {
+    background: var(--color-primary-dark);
+}
+
+.github-link:hover {
+    background: var(--color-accent-light);
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    padding: 0.3rem 0.8rem;
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
